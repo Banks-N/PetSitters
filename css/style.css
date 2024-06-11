@@ -33,6 +33,25 @@
     height: 257px;
 }
 
+.post-header {
+    display: flex;
+    flex-direction: colum;
+    align-items: start;
+    padding-bottom: 10px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+.post-header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
 .hover-media:hover{
     background-color: #F5F8FA;
 }
