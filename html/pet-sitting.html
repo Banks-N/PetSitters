@@ -1,73 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Service Form</title>
+    <link rel="stylesheet" href="pet-sitting.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
-<!------------------LIght BOx for Gallery-------------->
-<link rel="stylesheet" href="lightbox.min.css">
-<script type="text/javascript" src="lightbox-plus-jquery.min.js"></script>
-<!------------------LIght BOx for Gallery-------------->
-<title>Application-1</title>
 </head>
 <body>
-
-    <!-------------------------------NAvigation Starts------------------>
-
-    <nav class="navbar navbar-expand-md navbar-dark mb-4" style="background-color:#3097D1">
-        <a href="index.html" class="navbar-brand"><img src="img/brand-white.png" alt="logo" class="img-fluid" width="80px" height="100px"></a>
-
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color:#3097D1">
+        <a href="index.html" class="navbar-brand">ANIMAL FARM</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#responsive"><span class="navbar-toggler-icon"></span></button>
-
-
         <div class="collapse navbar-collapse" id="responsive">
             <ul class="navbar-nav mr-auto text-capitalize">
                 <li class="nav-item"><a href="index.html" class="nav-link">home</a></li>
                 <li class="nav-item"><a href="pet-sitting.html" class="nav-link active">pet sitting</a></li>
                 <li class="nav-item"><a href="profile.html" class="nav-link">profile</a></li>
-                <li class="nav-item"><a href="#modalview" class="nav-link" data-toggle="modal">messages</a></li>
+                <li class="nav-item"><a href="#modalview" data-toggle="modal" class="nav-link">messages</a></li>
                 <li class="nav-item"><a href="notification.html" class="nav-link">docs</a></li>
                 <li class="nav-item"><a href="#" class="nav-link d-md-none">growl</a></li>
                 <li class="nav-item"><a href="#" class="nav-link d-md-none">logout</a></li>
             </ul>
-
             <form action="" class="form-inline ml-auto d-none d-md-block">
                 <input type="text" name="search" id="search" placeholder="Search" class="form-control form-control-sm">
             </form>
             <a href="notification.html" class="text-decoration-none" style="color:#CBE4F2;font-size:22px;"><i class="far fa-bell ml-3 d-none d-md-block"></i></a> 
             <img src="img/avatar-dhg.png" alt="" class="rounded-circle ml-3 d-none d-md-block" width="32px" height="32px">
         </div>
-
-
-
-
-
     </nav>
 
-    <!---------------------------------------------Ends navigation------------------------------>
+
 
     <div class="container">
         <h2>I'm looking for service for my:</h2>
-        <label>
-            <input type="radio" name="pet-type" value="dog" checked> Dog
-        </label>
-        <label>
-            <input type="radio" name="pet-type" value="cat"> Cat
-        </label>
+        <div class="inline-labels">
+            <label>
+                <input type="radio" name="pet-type" value="dog" checked> Dog
+            </label>
+            <label>
+                <input type="radio" name="pet-type" value="cat"> Cat
+            </label>
+            <label>
+                <input type="radio" name="pet-type" value="other"> Other
+            </label>
 
-        <div class="services">
-            <div>
+        </div>
+        <div class="section">
+            <div class="button-group">
                 <button id="boarding" onclick="selectService(this)">Boarding</button>
                 <button id="house-sitting" onclick="selectService(this)">House Sitting</button>
             </div>
-            <div>
+            <div class="button-group">
                 <button id="drop-in-visits" class="active" onclick="selectService(this)">Drop-In Visits</button>
-                <button id="doggy-day-care" onclick="selectService(this)">Doggy Day Care</button>
-                <button id="dog-walking" onclick="selectService(this)">Dog Walking</button>
+                <button id="doggy-day-care" onclick="selectService(this)">Dog Walking</button>
             </div>
         </div>
 
@@ -75,7 +63,7 @@
         <input type="text" id="zip-code" name="zip-code" placeholder="Zip code or Address">
 
         <label>How often do you need this service?</label>
-        <div class="frequency">
+        <div class="button-group full-width">
             <button id="one-time" class="active" onclick="selectFrequency(this)">One Time</button>
             <button id="repeat-weekly" onclick="selectFrequency(this)">Repeat Weekly</button>
         </div>
@@ -85,45 +73,41 @@
         <input type="date" id="end-date" name="end-date">
 
         <label>My Dog Size</label>
-        <div class="dog-size">
+        <div class="button-group">
             <button id="small" onclick="selectSize(this)">Small<br>0 - 15 lbs</button>
             <button id="medium" onclick="selectSize(this)">Medium<br>16 - 40 lbs</button>
             <button id="large" onclick="selectSize(this)">Large<br>41 - 100 lbs</button>
             <button id="giant" onclick="selectSize(this)">Giant<br>101+ lbs</button>
         </div>
 
-        <input type="submit" value="Search">
+        <button><a href="available-sitters.html">Search</a></button>
     </div>
 
-    <!-------------------------------------------Start Grids layout for lg-xl-3 columns and (xs-lg 1 columns)--------------------------------->
-
-
-    <div class="container">
-        <div class="row">
-
-
-        
-
-
-
-<script>
+    <script>
         function selectService(button) {
-            document.querySelectorAll('.services button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.button-group button').forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
         }
 
         function selectFrequency(button) {
-            document.querySelectorAll('.frequency button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.button-group.full-width button').forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
         }
 
         function selectSize(button) {
-            document.querySelectorAll('.dog-size button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.button-group button').forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
         }
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        function toggleOtherPetInput(show) {
+            const otherPetInput = document.getElementById('other-pet');
+            if (show) {
+                otherPetInput.classList.remove('hidden');
+            } else {
+                otherPetInput.classList.add('hidden');
+            }
+        }
+
+    </script>
 </body>
 </html>
