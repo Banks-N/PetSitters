@@ -38,27 +38,36 @@
         <h2>I'm looking for service for my:</h2>
         <div class="inline-labels">
             <label>
-                <input type="radio" name="pet-type" value="dog" checked> Dog
+                <input type="radio" name="pet-type" value="dog" checked onclick="handlePetTypeChange()"> Dog
             </label>
             <label>
-                <input type="radio" name="pet-type" value="cat"> Cat
+                <input type="radio" name="pet-type" value="cat" onclick="handlePetTypeChange()"> Cat
             </label>
-            <label>
-                <input type="radio" name="pet-type" value="other"> Other
+<!--             
+            <label class="animal-type-container">
+                <input type="radio" name="pet-type" value="other" onclick="handlePetTypeChange()"> Other
+                <div id="other-animal-type" class="hidden">
+                    <input type="text" id="animal-type" name="animal-type" placeholder="Animal Type">
+                </div>
+            </label> -->
+            <label class="animal-type-container">
+                <input type="radio" name="pet-type" value="other" onclick="handlePetTypeChange()"> Other
+                <input type="text" id="other-animal-type" name="animal-type" placeholder="Animal Type" class="hidden animal-type-input">
             </label>
 
+        
         </div>
         <div class="section">
             <div class="select-service-group">
                 <button id="boarding" onclick="selectService(this)">Boarding</button>
                 <button id="house-sitting" onclick="selectService(this)">House Sitting</button>
                 <button id="drop-in-visits" onclick="selectService(this)">Drop-In Visits</button>
-                <button id="doggy-day-care" onclick="selectService(this)">Dog Walking</button>
+                <button id="dog-walking" onclick="selectService(this)">Dog Walking</button>
             </div>
         </div>
 
         <label for="zip-code">Drop-In Visits near</label>
-        <input type="text" id="zip-code" name="zip-code" placeholder="Zip code or Address">
+        <input type="text" id="zip-code" name="zip-code" placeholder="Zip Code or Address">
 
         <label>How often do you need this service?</label>
         <div class="select-frequency-group">
@@ -103,13 +112,22 @@
             button.classList.add('active');
         }
 
-        function toggleOtherPetInput(show) {
-            const otherPetInput = document.getElementById('other-pet');
-            if (show) {
-                otherPetInput.classList.remove('hidden');
-            } else {
-                otherPetInput.classList.add('hidden');
+        function handlePetTypeChange() {
+            const selectedPetType = document.querySelector('input[name="pet-type"]:checked').value;
+            const dogWalkingButton = document.getElementById('dog-walking');
+            const otherAnimalTypeInput = document.getElementById('other-animal-type');
+
+            if (selectedPetType === 'dog') {
+                dogWalkingButton.classList.remove('hidden');
+                otherAnimalTypeInput.classList.add('hidden');
+            } else if (selectedPetType === 'cat') {
+                dogWalkingButton.classList.add('hidden');
+                otherAnimalTypeInput.classList.add('hidden');
+            } else if (selectedPetType === 'other') {
+                dogWalkingButton.classList.add('hidden');
+                otherAnimalTypeInput.classList.remove('hidden');
             }
+
         }
 
         function navigateToPage(event) {

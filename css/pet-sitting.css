@@ -21,6 +21,11 @@ body {
     font-weight: bold;
 }
 
+input::placeholder {
+    color: #a9a9a9; /* Adjust color as needed */
+    opacity: 1; /* Ensure the opacity is not altered by the browser */
+}
+
 .inline-labels label {
     display: inline-block;
     margin-right: 20px;
@@ -82,4 +87,14 @@ button {
 
 .date-input-container input[type="date"] {
     width: 150px; /* Adjust width as needed */
+}
+
+.hidden {
+    display: none;
+}
+
+.animal-type-container {
+    display: inline;
+    align-items: center;
+    margin-left: 10px;
 }
