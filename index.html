@@ -236,17 +236,22 @@
                                         <h5 class="media-header">Dave Gamache <small class="text-muted">2m ago</small></h5>
                                     </div>
                                     <div class="post-body">
-                                        <!-- Post Image -->
+                                    <!-- Post Image -->
                                         <img src="img/oscar-close.jpg" alt="Post Image" class="mr-3" width="90%" height="auto" style="padding: 10px 0;">
 
-                                        <!-- Post Text -->
+                                    <!-- Post Text -->
                                         <p>This is my cat. He is very handsome as you can see.</p>
                                     </div>
-                                    <form action="" class="form-inline">
+                                    <!-- Post Actions -->
+                                    <div class="post-actions">
+                                        <a href="#" class="like"></a>
+                                        <a href="#" class="reply"></a>
+                                    </div>
+                                    <!-- Comments -->
+                                    <form action="" class="form-inline" style="padding-top: 10px;">
                                         <input type="text" class="form-control form-control-sm w-75 mr-3" placeholder="Add a comment">
                                         <button type="submit" class="btn btn-primary btn-sm">Post</button>
                                     </form>
-                                        <!-- Comments -->
                                     <div class="post-comment">
                                         <div class="comment-body">
                                             <img src="img/avatar-dhg.png" alt="User Avatar">
@@ -255,7 +260,6 @@
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
                                                 <div class="comment-actions">
                                                     <a href="#" class="like"></a>
-                                                    <a href="#" class="reply"></a>
                                                     <span>2m ago</span>
                                                 </div>
                                             </div>
@@ -263,46 +267,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- 2nd hard coded post -->
-                        <div class="card shadow-sm card-middle3 mb-4">
-                            <div class="card-body">
-                                <div class="flex-container">
-                                    <div class="post-header">
-                                        <img src="img/avatar-dhg.png" alt="User Avatar"  class="rounded-circle mr-3">
-                                        <h5 class="media-header">Dave Gamache <small class="text-muted">2m ago</small></h5>
-                                    </div>
-                                    <div class="post-body">
-                                        <!-- Post Image -->
-                                        <img src="img/oscar-close.jpg" alt="Post Image" class="mr-3" width="90%" height="auto" style="padding: 10px 0;">
-
-                                        <!-- Post Text -->
-                                        <p>This is my cat. He is very handsome as you can see.</p>
-                                    </div>
-
-                                    <form action="" class="form-inline">
-                                        <input type="text" class="form-control form-control-sm w-75 mr-3" placeholder="Add a comment">
-                                        <button type="submit" class="btn btn-primary btn-sm">Post</button>
-                                    </form>
-                                        <!-- Comments -->
-                                    <div class="post-comment">
-                                        <div class="comment-body">
-                                            <img src="img/avatar-dhg.png" alt="User Avatar">
-                                            <div class="comment-content">
-                                                <h6>Fake Person</h6>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
-                                                <div class="comment-actions">
-                                                    <a href="#" class="like"></a>
-                                                    <a href="#" class="reply"></a>
-                                                    <span>2m ago</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>                        
+                        </div>                     
 
                     </div>
                     <!-- Repeat similar structure for other posts -->
@@ -453,11 +418,16 @@ function addCardBody() {
                         <!-- Post Text -->
                         <p>${postText}</p>
                     </div>
-                    <form action="" class="form-inline">
+                    <!-- Post Actions -->
+                    <div class="post-actions">
+                        <a href="#" class="like"></a>
+                        <a href="#" class="reply"></a>
+                    </div>
+                    <!-- Comments -->
+                    <form action="" class="form-inline" style="padding-top: 10px;">
                         <input type="text" class="form-control form-control-sm w-75 mr-3" placeholder="Add a comment">
                         <button type="submit" class="btn btn-primary btn-sm">Post</button>
                     </form>
-                        <!-- Comments -->
                     <div class="post-comment">
                         <div class="comment-body">
                             <img src="img/avatar-dhg.png" alt="User Avatar">
@@ -466,7 +436,6 @@ function addCardBody() {
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
                                 <div class="comment-actions">
                                     <a href="#" class="like"></a>
-                                    <a href="#" class="reply"></a>
                                     <span>2m ago</span>
                                 </div>
                             </div>

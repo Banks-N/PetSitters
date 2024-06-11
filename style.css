@@ -97,6 +97,43 @@
     height: auto;
 }
 
+.post-actions {
+    font-size: 0.875em;
+    color: #6c757d;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.post-actions a {
+    color: #2172b9;
+    text-decoration: none;
+    margin-right: 10px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.post-actions .like {
+    background-image: url('img/icons/heart-empty.png');
+}
+
+.post-actions .like:hover {
+    background-image: url('img/icons/heart-select.png');
+}
+
+.post-actions .reply {
+    background-image: url('img/icons/chat-empty.png');
+}
+
+.post-actions .reply:hover {
+    background-image: url('img/icons/chat-full.png');
+}
+
 .post-comment {
     border-top: 1px solid #ddd;
     padding-top: 10px;
@@ -152,13 +189,6 @@
     background-image: url('img/icons/heart-select.png');
 }
 
-.comment-actions .reply {
-    background-image: url('img/icons/chat-empty.png');
-}
-
-.comment-actions .reply:hover {
-    background-image: url('img/icons/chat-full.png');
-}
 
 .flex-container {
     display: flex;
