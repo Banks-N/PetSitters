@@ -247,6 +247,7 @@
                                         <div class="comment-body">
                                             <img src="img/avatar-dhg.png" alt="User Avatar">
                                             <div class="comment-content">
+                                                <h6>Fake Person</h6>
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
                                                 <div class="comment-actions">
                                                     <a href="#" class="like"></a>
@@ -264,8 +265,7 @@
                             </div>
                         </div>
 
-
-                        <!-- 2nd hardcoded post -->
+                        <!-- 2nd hard coded post -->
                         <div class="card shadow-sm card-middle3 mb-4">
                             <div class="card-body">
                                 <div class="flex-container">
@@ -275,16 +275,24 @@
                                     </div>
                                     <div class="post-body">
                                         <!-- Post Image -->
-                                        <img src="img/left1.jpg" alt="Post Image" class="mr-3" width="90%" height="auto" style="padding: 10px 0;">
+                                        <img src="img/oscar-close.jpg" alt="Post Image" class="mr-3" width="90%" height="auto" style="padding: 10px 0;">
 
                                         <!-- Post Text -->
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio itaque vitae, quasi atque suscipit labore?</p>
+                                        <p>This is my cat. He is very handsome as you can see.</p>
                                     </div>
                                         <!-- Comments -->
                                     <div class="post-comment">
                                         <div class="comment-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
-                                            <p><small class="text-muted">Like . Reply</small></p>
+                                            <img src="img/avatar-dhg.png" alt="User Avatar">
+                                            <div class="comment-content">
+                                                <h6>Fake Person</h6>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
+                                                <div class="comment-actions">
+                                                    <a href="#" class="like"></a>
+                                                    <a href="#" class="reply"></a>
+                                                    <span>2m ago</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -293,7 +301,7 @@
                                     <button type="submit" class="btn btn-primary btn-sm">Post</button>
                                 </form>
                             </div>
-                        </div>
+                        </div>                        
 
                     </div>
                     <!-- Repeat similar structure for other posts -->
@@ -364,7 +372,6 @@ var uploadInput = document.getElementById('uploadInput');
 var videoInput = document.getElementById('uploadVideoInput');
 var uploadedImage = document.getElementById('uploadedImage');
 var imagepath;
-var isVideo;
 
 // Add click event listener to the photo span
 videoLink.addEventListener('click', function(event) {
@@ -446,15 +453,20 @@ function addCardBody() {
                         <p>${postText}</p>
                     </div>
                         <!-- Comments -->
-                    <!-- 
-                        <div class="post-comment">
+                    <div class="post-comment">
                         <div class="comment-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
-                            <p><small class="text-muted">Like . Reply</small></p>
+                            <img src="img/avatar-dhg.png" alt="User Avatar">
+                            <div class="comment-content">
+                                <h6>Fake Person</h6>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
+                                <div class="comment-actions">
+                                    <a href="#" class="like"></a>
+                                    <a href="#" class="reply"></a>
+                                    <span>2m ago</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    -->
                 </div>
                 <form action="" class="form-inline">
                     <input type="text" class="form-control form-control-sm w-75 mr-3" placeholder="Add a comment">
@@ -463,7 +475,7 @@ function addCardBody() {
             </div>
         </div>
     `;
-
+    
     // Insert the new card body after the card first element
     cardFirst.insertAdjacentElement('afterend', newCardBody);
 
@@ -487,7 +499,8 @@ function addCardBody() {
 
     // Clear the input values
     uploadInput.value = '';
-    videoInput.value = ''
+    videoInput.value = '';
+    imagepath = '';
     document.getElementById('post_text').value = '';
 }
 
