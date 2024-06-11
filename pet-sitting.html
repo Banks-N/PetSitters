@@ -49,12 +49,10 @@
 
         </div>
         <div class="section">
-            <div class="button-group">
+            <div class="select-service-group">
                 <button id="boarding" onclick="selectService(this)">Boarding</button>
                 <button id="house-sitting" onclick="selectService(this)">House Sitting</button>
-            </div>
-            <div class="button-group">
-                <button id="drop-in-visits" class="active" onclick="selectService(this)">Drop-In Visits</button>
+                <button id="drop-in-visits" onclick="selectService(this)">Drop-In Visits</button>
                 <button id="doggy-day-care" onclick="selectService(this)">Dog Walking</button>
             </div>
         </div>
@@ -63,39 +61,45 @@
         <input type="text" id="zip-code" name="zip-code" placeholder="Zip code or Address">
 
         <label>How often do you need this service?</label>
-        <div class="button-group full-width">
-            <button id="one-time" class="active" onclick="selectFrequency(this)">One Time</button>
+        <div class="select-frequency-group">
+            <button id="one-time" onclick="selectFrequency(this)">One Time</button>
             <button id="repeat-weekly" onclick="selectFrequency(this)">Repeat Weekly</button>
         </div>
 
+        
         <label>For what dates?</label>
-        <input type="date" id="start-date" name="start-date">
-        <input type="date" id="end-date" name="end-date">
-
+        <div class="date-input-container">
+            <label for="start-date">Drop Off:</label>
+            <input type="date" id="start-date" name="start-date">
+            
+            <label for="end-date" style="margin-left: 10px;">Pick Up:</label>
+            <input type="date" id="end-date" name="end-date">
+        </div>
+                        
         <label>My Dog Size</label>
-        <div class="button-group">
+        <div class="select-size-group">
             <button id="small" onclick="selectSize(this)">Small<br>0 - 15 lbs</button>
             <button id="medium" onclick="selectSize(this)">Medium<br>16 - 40 lbs</button>
             <button id="large" onclick="selectSize(this)">Large<br>41 - 100 lbs</button>
             <button id="giant" onclick="selectSize(this)">Giant<br>101+ lbs</button>
         </div>
 
-        <button><a href="available-sitters.html">Search</a></button>
+        <input type="submit" value="Submit" onclick="navigateToPage(event)">
     </div>
 
     <script>
         function selectService(button) {
-            document.querySelectorAll('.button-group button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.select-service-group button').forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
         }
 
         function selectFrequency(button) {
-            document.querySelectorAll('.button-group.full-width button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.select-frequency-group button').forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
         }
 
         function selectSize(button) {
-            document.querySelectorAll('.button-group button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.select-size-group button').forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
         }
 
@@ -106,6 +110,11 @@
             } else {
                 otherPetInput.classList.add('hidden');
             }
+        }
+
+        function navigateToPage(event) {
+            event.preventDefault(); // Prevent the form from submitting
+            window.location.href = "available-sitters.html"; // Redirect to the desired page
         }
 
     </script>
