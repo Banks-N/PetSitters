@@ -13,12 +13,11 @@
   }
   
 .banner{
-    background-image: url(img/banner.jpg);
+    background-image: url(../img/banner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 500px;
-
 }
 
 .banner-title{
@@ -119,19 +118,19 @@
 }
 
 .post-actions .like {
-    background-image: url('img/icons/heart-empty.png');
+    background-image: url('../img/icons/heart-empty.png');
 }
 
 .post-actions .like:hover {
-    background-image: url('img/icons/heart-select.png');
+    background-image: url('../img/icons/heart-select.png');
 }
 
 .post-actions .reply {
-    background-image: url('img/icons/chat-empty.png');
+    background-image: url('../img/icons/chat-empty.png');
 }
 
 .post-actions .reply:hover {
-    background-image: url('img/icons/chat-full.png');
+    background-image: url('../img/icons/chat-full.png');
 }
 
 .post-comment {
@@ -182,11 +181,11 @@
 }
 
 .comment-actions .like {
-    background-image: url('img/icons/heart-empty.png');
+    background-image: url('../img/icons/heart-empty.png');
 }
 
 .comment-actions .like:hover {
-    background-image: url('img/icons/heart-select.png');
+    background-image: url('../img/icons/heart-select.png');
 }
 
 
