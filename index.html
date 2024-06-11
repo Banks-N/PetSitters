@@ -277,9 +277,6 @@
 
                         </div>
 
-
-
-
                     </div>
 
 
@@ -380,48 +377,41 @@
 
 
             
-            <div class="col-12 col-lg-6" >
+<div class="col-12 col-lg-6" >
 
 
-                <div class="middle-column">
+    <div class="middle-column">
 
 
-                    <div class="card" >
+        <div class="main-card" >
 
-
-                        <div class="card-header bg-transparent">
-                            <form class="form-inline">
-
-
-                                <div class="input-group w-100">
-                                 <input type="text" name="message" id="message" placeholder="Message" class="form-control form-control-md">
-
-                                 <div class="input-group-append">
-                                        <div class="input-group-text">
-                                                <i class="fas fa-camera"></i>
-                                            </div>
-
-
-                                 </div>
-
-                                </div>
-
-
-
-                        
-                                
-                               
-                            </form>
-
+            <div class="card-header bg-transparent">
+                <form class="form-inline">
+                    <div class="input-group w-100">
+                        <input type="text" name="message" id="message" placeholder="Message" class="form-control form-control-md">
+                        <div class="input-group-append">
+                            <button type="button" onclick="addCardBody()">Add Card Body</button>
+                            <div class="input-group-text">
+                                    <i class="fas fa-camera"></i>
+                            </div>
                         </div>
+                    </div>
+                </form>
+            </div>
 
-
-
-
-
-
-                           
-   <div class="card-body">
+            <div class="card-body">
+                <div class="media">
+                        <img src="img/avatar-fat.jpg" alt="img" width="55px" height="55px" class="rounded-circle mr-3">
+                    <div class="media-body">
+                            <h5>Jacob Thornton</h5>
+                            <p class="text-justify">Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+                                Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <small>14 min</small>
+                </div>
+            </div>
+        </div>                         
+<div class="card-body">
 
     <div class="media">
         <img src="img/avatar-dhg.png" alt="img" width="55px" height="55px" class="rounded-circle mr-3">
@@ -802,7 +792,41 @@
 
 
 
+<script>
+    function addCardBody() {
+        var card = document.querySelector('.main-card');
 
+        console.log("Card found:", card);
+
+        // Check if card header exists
+        var cardHeader = card.querySelector('.card-header');
+        console.log("Card header found:", cardHeader);
+
+        if (!cardHeader) {
+            console.error("Card header not found.");
+            return; // Exit the function if card header is not found
+        }
+
+        // Create a new card body
+        var cardBody = document.createElement('div');
+        cardBody.classList.add('card-body');
+
+        // You can customize the content of the new card body here
+        cardBody.innerHTML = `
+            <div class="media">
+                <img src="img/avatar-fat.jpg" alt="img" width="55px" height="55px" class="rounded-circle mr-3">
+                <div class="media-body">
+                    <h5>New User</h5>
+                    <p>New Content</p>
+                </div>
+                <small>Just Now</small>
+            </div>
+        `;
+
+        // Append the new card body right after the card header
+        card.appendChild(cardBody);
+    }
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
