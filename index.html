@@ -199,61 +199,94 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="card shadow-sm card-middle2 mb-4">
-                        <div class="card-body">
-                            <div class="media">
-                                <img src="img/avatar-dhg.png" alt="User Avatar" width="50" height="50" class="rounded-circle mr-3">
-                                <div class="media-body">
-                                    <div class="form-group">
-                                        <label class="sr-only" for="status">Status</label>
-                                        <textarea name="status" id="status" rows="3" class="form-control" placeholder="What's on your mind?"></textarea>
+                    <div class="card-box">
+                        <div class = "card-first">
+                            <div class="card shadow-sm card-middle2 mb-4">
+                                <div class="card-body">
+                                    <div class="media">
+                                        <img src="img/avatar-dhg.png" alt="User Avatar" width="50" height="50" class="rounded-circle mr-3">
+                                        <div class="media-body">
+                                            <div class="form-group">
+                                                <label class="sr-only" for="status">Status</label>
+                                                <textarea name="status" id="status" rows="3" class="form-control" placeholder="What's on your mind?"></textarea>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <i class="fas fa-camera text-muted"></i> <span class="d-none d-lg-inline">Photo</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <i class="fas fa-video text-muted"></i> <span class="d-none d-lg-inline">Video</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <i class="fas fa-map-marker text-muted"></i> <span class="d-none d-lg-inline">Check-in</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <i class="fas fa-calendar text-muted"></i> <span class="d-none d-lg-inline">Event</span>
+                                            </a>
+                                        </li>
+                                        <button type="button" class = "btn btn-primary btn-sm" onclick="addCardBody()">Add Post</button>
+                                    </ul>
                                 </div>
                             </div>
-                            <ul class="nav">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fas fa-camera text-muted"></i> <span class="d-none d-lg-inline">Photo</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fas fa-video text-muted"></i> <span class="d-none d-lg-inline">Video</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fas fa-map-marker text-muted"></i> <span class="d-none d-lg-inline">Check-in</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fas fa-calendar text-muted"></i> <span class="d-none d-lg-inline">Event</span>
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
-                    </div>
-                    <div class="card shadow-sm card-middle3 mb-4">
-                        <div class="card-body">
-                            <div class="media mb-3">
-                                <img src="img/avatar-dhg.png" alt="User Avatar" width="50" height="50" class="rounded-circle mr-3">
-                                <div class="media-body">
-                                    <h5 class="media-header">Dave Gamache <small class="text-muted">2m ago</small></h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio itaque vitae, quasi atque suscipit labore?</p>
-                                    <div class="media">
-                                        <img src="img/1.jpg" alt="Post Image" class="mr-3" width="50" height="50">
-                                        <div class="media-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
-                                            <p><small class="text-muted">Like . Reply</small></p>
+
+                        <!-- ADD POST HERE -->
+                        
+                        <!-- First Post -->
+                        <div class="card shadow-sm card-middle3 mb-4">
+                            <div class="card-body">
+                                <div class="media mb-3">
+                                    <img src="img/avatar-dhg.png" alt="User Avatar" width="50" height="50" class="rounded-circle mr-3">
+                                    <div class="media-body">
+                                        <h5 class="media-header">Dave Gamache <small class="text-muted">2m ago</small></h5>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio itaque vitae, quasi atque suscipit labore?</p>
+                                        <div class="media">
+                                            <img src="img/1.jpg" alt="Post Image" class="mr-3" width="50" height="50">
+                                            <div class="media-body">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
+                                                <p><small class="text-muted">Like . Reply</small></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <form action="" class="form-inline">
+                                    <input type="text" class="form-control form-control-sm w-75 mr-3" placeholder="Add a comment">
+                                    <button type="button" class="btn btn-primary btn-sm">Post</button>
+                                </form>
                             </div>
-                            <form action="" class="form-inline">
-                                <input type="text" class="form-control form-control-sm w-75 mr-3" placeholder="Add a comment">
-                                <button type="submit" class="btn btn-primary btn-sm">Post</button>
-                            </form>
+                        </div>
+
+                        <!-- Second Post -->
+                        <div class="card shadow-sm card-middle3 mb-4">
+                            <div class="card-body">
+                                <div class="media mb-3">
+                                    <img src="img/avatar-dhg.png" alt="User Avatar" width="50" height="50" class="rounded-circle mr-3">
+                                    <div class="media-body">
+                                        <h5 class="media-header">Dave Gamache <small class="text-muted">2m ago</small></h5>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio itaque vitae, quasi atque suscipit labore?</p>
+                                        <div class="media">
+                                            <img src="img/1.jpg" alt="Post Image" class="mr-3" width="50" height="50">
+                                            <div class="media-body">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
+                                                <p><small class="text-muted">Like . Reply</small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form action="" class="form-inline">
+                                    <input type="text" class="form-control form-control-sm w-75 mr-3" placeholder="Add a comment">
+                                    <button type="button" class="btn btn-primary btn-sm">Post</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     <!-- Repeat similar structure for other posts -->
@@ -315,6 +348,51 @@
     </div>
 </footer>
 
+<script>
+function addCardBody() {
+    var cardBox = document.querySelector('.card-box');
+    var cardFirst = cardBox.querySelector('.card-first');
+
+    if (!cardFirst) {
+        console.error("Card header not found.");
+        return;
+    }
+
+    // Create a new card body
+    var newCardBody = document.createElement('div');
+    newCardBody.classList.add('new-card');
+
+    // Customize the content of the new card body here
+    newCardBody.innerHTML = `
+        <div class="card shadow-sm card-middle3 mb-4">
+            <div class="card-body">
+                <div class="media mb-3">
+                    <img src="img/avatar-dhg.png" alt="User Avatar" width="50" height="50" class="rounded-circle mr-3">
+                    <div class="media-body">
+                        <h5 class="media-header">Dave Gamache <small class="text-muted">2m ago</small></h5>
+                        <p>NEW Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio itaque vitae, quasi atque suscipit labore?</p>
+                        <div class="media">
+                            <img src="img/1.jpg" alt="Post Image" class="mr-3" width="50" height="50">
+                            <div class="media-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
+                                <p><small class="text-muted">Like . Reply</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form action="" class="form-inline">
+                    <input type="text" class="form-control form-control-sm w-75 mr-3" placeholder="Add a comment">
+                    <button type="button" class="btn btn-primary btn-sm">Post</button>
+                </form>
+            </div>
+        </div>
+    `;
+
+    // Insert the new card body after the card first element
+    cardFirst.insertAdjacentElement('afterend', newCardBody);
+}
+
+</script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
