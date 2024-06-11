@@ -33,6 +33,51 @@
     height: 257px;
 }
 
+.profile-card {
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.profile-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.profile-card .profile-picture {
+    width: 120px;
+    height: 120px;
+    border: 5px solid white;
+    position: absolute;
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.profile-card .card-body {
+    margin-top: 80px;
+}
+
+.profile-card .nav {
+    margin-top: 1.5rem;
+}
+
+.profile-card .nav-item {
+    margin: 0 1.5rem;
+}
+
+.profile-card .nav-item a {
+    display: block;
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+}
+
+.profile-card .nav-item a strong {
+    display: block;
+    font-size: 1.25rem;
+    color: #007bff;
+}
+
 .post-header {
     display: flex;
     flex-direction: colum;
@@ -83,16 +128,36 @@
     color: #6c757d;
     display: flex;
     justify-content: space-between;
+    margin-top: 5px;
 }
 
 .comment-actions a {
-    color: #6c757d;
+    color: #2172b9;
     text-decoration: none;
     margin-right: 10px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+    vertical-align: middle;
 }
 
-.comment-actions a:hover {
-    text-decoration: underline;
+.comment-actions .like {
+    background-image: url('img/icons/heart-empty.png');
+}
+
+.comment-actions .like:hover {
+    background-image: url('img/icons/heart-select.png');
+}
+
+.comment-actions .reply {
+    background-image: url('img/icons/chat-empty.png');
+}
+
+.comment-actions .reply:hover {
+    background-image: url('img/icons/chat-full.png');
 }
 
 .flex-container {
