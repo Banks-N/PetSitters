@@ -208,14 +208,15 @@
                                     </div>
                                     <ul class="nav">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
+                                            <a href="#" class="nav-link" id = "photoLink">
                                                 <i class="fas fa-camera text-muted"></i> <span class="d-none d-lg-inline">Photo</span>
-                                                <input type="file" id="uploadInput" accept="image/*">
+                                                <input type="file" id="uploadInput" accept="image/*" style="display: none;">
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">
+                                            <a href="#" class="nav-link" id = "videoLink">
                                                 <i class="fas fa-video text-muted"></i> <span class="d-none d-lg-inline">Video</span>
+                                                <input type="file" id="uploadVideoInput" accept="video/*" style="display: none;">
                                             </a>
                                         </li>
                                         <button type="button" class = "btn btn-primary btn-sm" onclick="addCardBody()">Add Post</button>
@@ -356,11 +357,26 @@
 </footer>
 
 <script>
-// Get references to the input and image elements
+// Get references to the elements
+var photoLink = document.getElementById('photoLink');
+var videoLink = document.getElementById('videoLink')
 var uploadInput = document.getElementById('uploadInput');
+var videoInput = document.getElementById('uploadVideoInput');
 var uploadedImage = document.getElementById('uploadedImage');
-
 var imagepath;
+var isVideo;
+
+// Add click event listener to the photo span
+videoLink.addEventListener('click', function(event) {
+    // Trigger a click event on the upload input
+    videoInput.click();
+});
+
+// Add click event listener to the photo span
+photoLink.addEventListener('click', function(event) {
+    // Trigger a click event on the upload input
+    uploadInput.click();
+});
 
 // Add event listener to input element
 uploadInput.addEventListener('change', function(event) {
@@ -375,7 +391,7 @@ uploadInput.addEventListener('change', function(event) {
         // Set the source of the image tag to the uploaded image data
         // uploadedImage.src = event.target.result;
         imagepath = event.target.result;
-        console.log(imagepath);
+        console.log("image", imagepath);
     };
 
     // Read the selected file as a Data URL
@@ -397,6 +413,8 @@ function addCardBody() {
     //Text
     var postText = document.getElementById('post_text').value;
     postText = postText.replace(/\n/g, '<br>');
+    //Video
+    const file = videoInput.files[0];
 
     // Create a new card body
     var newCardBody = document.createElement('div');
@@ -416,6 +434,13 @@ function addCardBody() {
                         <!-- Post Image -->
                         ${imagepath ? `<div class="media">
                             <img src="${imagepath}" alt="Post Image" class="mr-3" width="90%" height="auto" style="padding-bottom: 15px;">
+                        </div>` : ''}
+                        
+                        <!-- Post Video -->
+                        ${file ? `<div class="media">
+                            <video id="videoPlayer" style="width: 50%;" controls autoplay loop muted>
+                                Your browser does not support the video tag.
+                            </video>
                         </div>` : ''}
                         <!-- Post Text -->
                         <p>${postText}</p>
@@ -439,13 +464,31 @@ function addCardBody() {
         </div>
     `;
 
+    // Insert the new card body after the card first element
+    cardFirst.insertAdjacentElement('afterend', newCardBody);
+
+    const videoPlayer = document.getElementById('videoPlayer');
+    if (file) {
+        const url = URL.createObjectURL(file);
+        videoPlayer.src = url;
+        videoPlayer.play();
+
+        // Add event listener for video errors
+        videoPlayer.addEventListener('error', function(e) {
+            console.error('Error loading video:', e);
+            alert('Error loading video. Please ensure the file is a valid video format.');
+        });
+
+        videoPlayer.play().catch(error => {
+            console.error('Error playing video:', error);
+            alert('Error playing video. Please ensure the file is a valid video format.');
+        });
+    } 
 
     // Clear the input values
     uploadInput.value = '';
+    videoInput.value = ''
     document.getElementById('post_text').value = '';
-
-    // Insert the new card body after the card first element
-    cardFirst.insertAdjacentElement('afterend', newCardBody);
 }
 
 </script>
