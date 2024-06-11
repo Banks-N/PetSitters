@@ -115,9 +115,9 @@
         cursor: pointer;
     }
     #map {
-        width: 800px;
-        height: 800px;
-        margin: 10px;
+        width: 850px;
+        height: 850px;
+        margin: 0px;
     }
 </style>
 </head>
@@ -135,7 +135,7 @@
                     <p>Special Skills: First Aid Certified</p>
                     <button class="contact-button" onclick="openModal('john.doe@example.com', '(555) 123-4567')">Contact</button>
                 </div>
-                <img src="profile1.jpg" alt="Profile Image">
+                <img src="portfolio/img1.jpg" alt="Profile Image">
             </div>
             <div class="profile">
                 <div class="profile-info">
@@ -213,7 +213,7 @@
             }
         }
 
-        var map = L.map('map').setView([41.8781, -87.6298], 10); // Centered on Chicago with a zoom level of 10
+        var map = L.map('map').setView([40.4842, -88.9937], 13); // Centered on Chicago with a zoom level of 10
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
