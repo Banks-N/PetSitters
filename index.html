@@ -207,8 +207,8 @@
                                         <img src="img/avatar-dhg.png" alt="User Avatar" width="50" height="50" class="rounded-circle mr-3">
                                         <div class="media-body">
                                             <div class="form-group">
-                                                <label class="sr-only" for="status">Status</label>
-                                                <textarea name="status" id="status" rows="3" class="form-control" placeholder="What's on your mind?"></textarea>
+                                                <label class="sr-only" for="post_text">post_text</label>
+                                                <textarea name="post_text" id="post_text" rows="3" class="form-control" placeholder="What's on your mind?"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -216,6 +216,7 @@
                                         <li class="nav-item">
                                             <a href="#" class="nav-link">
                                                 <i class="fas fa-camera text-muted"></i> <span class="d-none d-lg-inline">Photo</span>
+                                                <input type="file" id="uploadInput" accept="image/*">
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -349,7 +350,34 @@
 </footer>
 
 <script>
+// Get references to the input and image elements
+var uploadInput = document.getElementById('uploadInput');
+var uploadedImage = document.getElementById('uploadedImage');
+
+var imagepath;
+
+// Add event listener to input element
+uploadInput.addEventListener('change', function(event) {
+    // Get the selected file
+    var file = event.target.files[0];
+    
+    // Create a FileReader object
+    var reader = new FileReader();
+
+    // Set up event listener to handle file reading
+    reader.onload = function(event) {
+        // Set the source of the image tag to the uploaded image data
+        // uploadedImage.src = event.target.result;
+        imagepath = event.target.result;
+        console.log(imagepath);
+    };
+
+    // Read the selected file as a Data URL
+    reader.readAsDataURL(file);
+});
+
 function addCardBody() {
+    console.log("addCardBody");
     var cardBox = document.querySelector('.card-box');
     var cardFirst = cardBox.querySelector('.card-first');
 
@@ -357,6 +385,12 @@ function addCardBody() {
         console.error("Card header not found.");
         return;
     }
+
+    // Username
+    var userName = 'Dave Gamache'
+    //Text
+    var postText = document.getElementById('post_text').value;
+    postText = postText.replace(/\n/g, '<br>');
 
     // Create a new card body
     var newCardBody = document.createElement('div');
@@ -369,17 +403,13 @@ function addCardBody() {
                 <div class="media mb-3">
                     <img src="img/avatar-dhg.png" alt="User Avatar" width="50" height="50" class="rounded-circle mr-3">
                     <div class="media-body">
-                        <h5 class="media-header">Dave Gamache <small class="text-muted">2m ago</small></h5>
-                        <p>NEW Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio itaque vitae, quasi atque suscipit labore?</p>
-                        <div class="media">
-                            <img src="img/1.jpg" alt="Post Image" class="mr-3" width="50" height="50">
-                            <div class="media-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
-                                <p><small class="text-muted">Like . Reply</small></p>
-                            </div>
-                        </div>
+                        <h5 class="media-header">${userName}<small class="text-muted"> 2m ago</small></h5>
+                        <p>${postText}</p>
                     </div>
                 </div>
+                ${imagepath ? `<div class="media">
+                    <img id="uploadedImage" src="${imagepath}" alt="" style="width: 100%;padding: 15px 0">
+                </div>` : ''}
                 <form action="" class="form-inline">
                     <input type="text" class="form-control form-control-sm w-75 mr-3" placeholder="Add a comment">
                     <button type="button" class="btn btn-primary btn-sm">Post</button>
@@ -387,6 +417,11 @@ function addCardBody() {
             </div>
         </div>
     `;
+    
+
+    // Clear the input values
+    uploadInput.value = '';
+    document.getElementById('post_text').value = '';
 
     // Insert the new card body after the card first element
     cardFirst.insertAdjacentElement('afterend', newCardBody);
