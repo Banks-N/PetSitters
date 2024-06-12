@@ -125,12 +125,16 @@
     background-image: url('../img/icons/heart-select.png');
 }
 
+.post-actions .like.liked {
+    background-image: url('img/icons/heart-full.png');
+}
+
 .post-actions .reply {
-    background-image: url('../img/icons/chat-empty.png');
+    background-image: url('img/icons/reply-empty.png');
 }
 
 .post-actions .reply:hover {
-    background-image: url('../img/icons/chat-full.png');
+    background-image: url('img/icons/reply-select.png');
 }
 
 .post-comment {
@@ -182,6 +186,10 @@
 
 .comment-actions .like {
     background-image: url('../img/icons/heart-empty.png');
+}
+
+.comment-actions .like.liked {
+    background-image: url('img/icons/heart-full.png');
 }
 
 .comment-actions .like:hover {
