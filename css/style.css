@@ -12,6 +12,10 @@
       text-align: left;
   }
   
+.navbar-brand {
+    font-weight: bold;
+}
+
 .banner{
     background-image: url(../img/banner.jpg);
     background-repeat: no-repeat;
