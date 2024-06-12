@@ -272,7 +272,7 @@
                                     </div>
                                     <!-- Post Actions -->
                                     <div class="post-actions">
-                                        <a href="#" class="like" id="like-button"></a>
+                                        <a href="#" class="like" data-label="like-button"></a>
                                         <a href="#" class="reply"></a>
                                     </div>
                                     <!-- Comments -->
@@ -287,7 +287,7 @@
                                                 <h6>Sarah Lee</h6>
                                                 <p>Aww! What's their name?</p>
                                                 <div class="comment-actions">
-                                                    <a href="#" class="like" id="comment-like-button"></a>
+                                                    <a href="#" class="like" data-label="comment-like-button"></a>
                                                     <span>2m ago</span>
                                                 </div>
                                             </div>
@@ -298,7 +298,7 @@
                                                 <h6>Sarah Lee</h6>
                                                 <p>Love this!</p>
                                                 <div class="comment-actions">
-                                                    <a href="#" class="like"></a>
+                                                    <a href="#" class="like" data-label="comment-like-button"></a>
                                                     <span>2m ago</span>
                                                 </div>
                                             </div>
@@ -494,7 +494,7 @@ function addCardBody() {
                     </div>
                     <!-- Post Actions -->
                     <div class="post-actions">
-                        <a href="#" class="like" id="like-button"></a>
+                        <a href="#" class="like" data-label="like-button"></a>
                         <a href="#" class="reply"></a>
                     </div>
                     <!-- Comments -->
@@ -503,17 +503,6 @@ function addCardBody() {
                         <button type="button" class="btn btn-primary btn-sm">Post</button>
                     </form>
                     <div class="post-comment">
-                        <div class="comment-body">
-                            <img src="img/sarah-lee.jpg" alt="User Avatar">
-                            <div class="comment-content">
-                                <h6>Sarah Lee</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
-                                <div class="comment-actions">
-                                    <a href="#" class="like" id="like-button"></a>
-                                    <span>2m ago</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -548,6 +537,10 @@ function addCardBody() {
     imagepath = '';
     document.getElementById('post_text').value = '';
     addCommentFunctionality();
+    addLikeButtonListeners('like-button');
+
+    // Add event listeners to comment like buttons
+    addLikeButtonListeners('comment-like-button');
 }
 
 function addCommentFunctionality() {
@@ -587,7 +580,7 @@ function addCommentFunctionality() {
                         <h6>Sarah Lee</h6>
                         <p>${commentText}</p>
                         <div class="comment-actions">
-                            <a href="#" class="like" id="comment-like-button"></a>
+                            <a href="#" class="like" data-label="comment-like-button"></a>
                             <span>Just now</span>
                         </div>
                     </div>
@@ -599,6 +592,7 @@ function addCommentFunctionality() {
 
                 // Clear the comment input field
                 commentInput.value = '';
+                addLikeButtonListeners('comment-like-button');
             });
         }
     });
@@ -615,21 +609,31 @@ addCommentFunctionality();
 <script src="lightbox-plus-jquery.min.js"></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Toggle like button for the post
-        var likeButton = document.getElementById('like-button');
-        likeButton.addEventListener('click', function (e) {
-            e.preventDefault();
-            this.classList.toggle('liked');
-        });
 
-        // Toggle like button for the comment
-        var commentLikeButton = document.getElementById('comment-like-button');
-        commentLikeButton.addEventListener('click', function (e) {
-            e.preventDefault();
-            this.classList.toggle('liked');
-        });
+// Function to add event listeners to elements with a specific data-label
+function addLikeButtonListeners(dataLabel) {
+    var likeButtons = document.querySelectorAll(`[data-label="${dataLabel}"]`);
+    likeButtons.forEach(function (button) {
+        // Check if the event listener has already been added
+        if (!button.dataset.listenerAdded) {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                this.classList.toggle('liked');
+            });
+            // Mark that the event listener has been added
+            button.dataset.listenerAdded = true;
+        }
     });
+}
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Add event listeners to post like buttons
+    addLikeButtonListeners('like-button');
+
+    // Add event listeners to comment like buttons
+    addLikeButtonListeners('comment-like-button');
+});
+
 </script>
 
 
