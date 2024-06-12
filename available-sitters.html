@@ -7,7 +7,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 <link rel="stylesheet" href="css/style.css">
-
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <!------------------LIght BOx for Gallery-------------->
 <link rel="stylesheet" href="lightbox.min.css">
 <script type="text/javascript" src="lightbox-plus-jquery.min.js"></script>
@@ -19,21 +20,33 @@
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    padding: 20px;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: flex-start;
     height: 100vh;
     overflow-y: auto;
 }
 
+.container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 90%;
+        }
+
+.column {
+            flex: 1;
+        padding: 20px;
+        }
+
+
 .profile-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 800px;
-    padding: 20px;
+    max-width: 40vw;
+    /* padding: 20px; */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
@@ -113,6 +126,11 @@
     text-decoration: none;
     cursor: pointer;
 }
+#map {
+            width: 40vw;
+            height: 40vh;
+            margin: 0px;
+        }
 </style>
 
 <body>
@@ -146,52 +164,60 @@
         </div>
     </nav>
 
-<div class="profile-container">
-    <div class="profile">
-        <div class="profile-info">
-            <h2>John Doe</h2>
-            <p>Age: 30</p>
-            <p>Location: New York</p>
-            <p>Services: Dog walking, pet sitting</p>
-            <p>Special Skills: First Aid Certified</p>
-            <button class="contact-button" onclick="openModal('john.doe@example.com', '(555) 123-4567')">Contact</button>
+    <div class="container">
+        <div class="column" id="column1">
+            <div class="profile-container">
+                <div class="profile">
+                    <div class="profile-info">
+                        <h2>John Doe</h2>
+                        <p>Age: 30</p>
+                        <p>Location: New York</p>
+                        <p>Services: Dog walking, pet sitting</p>
+                        <p>Special Skills: First Aid Certified</p>
+                        <button class="contact-button" onclick="openModal('john.doe@example.com', '(555) 123-4567')">Contact</button>
+                    </div>
+                    <img src="portfolio/img1.jpg" alt="Profile Image">
+                </div>
+                <div class="profile">
+                    <div class="profile-info">
+                        <h2>Jane Smith</h2>
+                        <p>Age: 25</p>
+                        <p>Location: Los Angeles</p>
+                        <p>Services: Dog boarding, cat sitting</p>
+                        <p>Special Skills: Pet grooming</p>
+                        <button class="contact-button" onclick="openModal('jane.smith@example.com', '(555) 234-5678')">Contact</button>
+                    </div>
+                    <img src="profile2.jpg" alt="Profile Image">
+                </div>
+                <div class="profile">
+                    <div class="profile-info">
+                        <h2>Sam Johnson</h2>
+                        <p>Age: 40</p>
+                        <p>Location: Chicago</p>
+                        <p>Services: Pet daycare, overnight stays</p>
+                        <p>Special Skills: Behavioral training</p>
+                        <button class="contact-button" onclick="openModal('sam.johnson@example.com', '(555) 345-6789')">Contact</button>
+                    </div>
+                    <img src="profile3.jpg" alt="Profile Image">
+                </div>
+                <div class="profile">
+                    <div class="profile-info">
+                        <h2>Alice Johnson</h2>
+                        <p>Age: 40</p>
+                        <p>Location: Chicago</p>
+                        <p>Services: Pet daycare, overnight stays</p>
+                        <p>Special Skills: Behavioral training</p>
+                        <button class="contact-button" onclick="openModal('alice.johnson@example.com', '(555) 345-6789')">Contact</button>
+                    </div>
+                    <img src="profile3.jpg" alt="Profile Image">
+                </div>
+            </div>
         </div>
-        <img src="profile1.jpg" alt="Profile Image">
-    </div>
-    <div class="profile">
-        <div class="profile-info">
-            <h2>Jane Smith</h2>
-            <p>Age: 25</p>
-            <p>Location: Los Angeles</p>
-            <p>Services: Dog boarding, cat sitting</p>
-            <p>Special Skills: Pet grooming</p>
-            <button class="contact-button" onclick="openModal('jane.smith@example.com', '(555) 234-5678')">Contact</button>
+
+        <div class="column" id="column2">
+            <div id="map"></div>
         </div>
-        <img src="profile2.jpg" alt="Profile Image">
     </div>
-    <div class="profile">
-        <div class="profile-info">
-            <h2>Sam Johnson</h2>
-            <p>Age: 40</p>
-            <p>Location: Chicago</p>
-            <p>Services: Pet daycare, overnight stays</p>
-            <p>Special Skills: Behavioral training</p>
-            <button class="contact-button" onclick="openModal('sam.johnson@example.com', '(555) 345-6789')">Contact</button>
-        </div>
-        <img src="profile3.jpg" alt="Profile Image">
-    </div>
-    <div class="profile">
-      <div class="profile-info">
-          <h2>Alice Johnson</h2>
-          <p>Age: 40</p>
-          <p>Location: Chicago</p>
-          <p>Services: Pet daycare, overnight stays</p>
-          <p>Special Skills: Behavioral training</p>
-          <button class="contact-button" onclick="openModal('alice.johnson@example.com', '(555) 345-6789')">Contact</button>
-      </div>
-      <img src="profile3.jpg" alt="Profile Image">
-  </div>
-</div>
 
 <!-- Modal -->
 <div id="myModal" class="modal">
@@ -223,6 +249,25 @@
             modal.style.display = "none";
         }
     }
+    var map = L.map('map').setView([41.8781, -87.6298], 10); // Centered on Chicago with a zoom level of 10
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Sample markers
+        var markers = [
+            { name: 'John Doe', location: [40.7128, -74.0060] }, // New York
+            { name: 'Jane Smith', location: [34.0522, -118.2437] }, // Los Angeles
+            { name: 'Sam Johnson', location: [41.8781, -87.6298] }, // Chicago
+            { name: 'Alice Johnson', location: [41.8781, -87.6298] } // Chicago
+        ];
+
+        markers.forEach(marker => {
+            L.marker(marker.location)
+                .addTo(map)
+                .bindPopup(marker.name);
+        });
 </script>
 
 </body>

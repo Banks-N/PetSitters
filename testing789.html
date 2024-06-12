@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Pet Sitters</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh; /* Changed height to min-height */
+            overflow-y: auto;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 80%;
+        }
+
+        .column {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            padding-bottom: 20px;
+        }
+        .profile {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px;
+            margin-left: auto;
+        }
+        .profile h2 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        .profile p {
+            margin: 0;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+        .profile-info {
+            margin-right: 20px;
+        }
+        .contact-button {
+            padding: 8px 16px;
+            background-color: #3097D1;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.9rem;
+            cursor: pointer;
+            width: fit-content;
+            margin-top: 10px; /* Add space between info and button */
+            display: inline-block; /* Ensure button-like appearance */
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000; /* Higher z-index to appear on top of the map */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #map {
+            width: 850px;
+            height: 850px;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-container">
+        <nav class="navbar navbar-expand-md navbar-dark" style="background-color:#ED1D24">
+            <a href="index.html" class="navbar-brand">ANIMAL FARM</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#responsive"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="responsive">
+                <ul class="navbar-nav mr-auto text-capitalize">
+                    <li class="nav-item"><a href="index.html" class="nav-link">home</a></li>
+                    <li class="nav-item"><a href="pet-sitting.html" class="nav-link active">pet sitting</a></li>
+                    <li class="nav-item"><a href="profile.html" class="nav-link">profile</a></li>
+                    <li class="nav-item"><a href="#modalview" data-toggle="modal" class="nav-link">messages</a></li>
+                    <li class="nav-item"><a href="notification.html" class="nav-link">docs</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-md-none">growl</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link d-md-none">logout</a></li>
+                </ul>
+                <form action="" class="form-inline ml-auto d-none d-md-block">
+                    <input type="text" name="search" id="search" placeholder="Search" class="form-control form-control-sm">
+                </form>
+                <a href="notification.html" class="text-decoration-none" style="color:#CBE4F2;font-size:22px;"><i class="far fa-bell ml-3 d-none d-md-block"></i></a> 
+                <img src="img/avatar-dhg.png" alt="" class="rounded-circle ml-3 d-none d-md-block" width="32px" height="32px">
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="column">
+            <div class="profile-container">
+                <div class="profile">
+                    <div class="profile-info">
+                        <h2>John Doe</h2>
+                        <p>Age: 30</p>
+                        <p>Location: New York</p>
+                        <p>Services: Dog walking, pet sitting</p>
+                        <p>Special Skills: First Aid Certified</p>
+                        <button class="contact-button" onclick="openModal('john.doe@example.com', '(555) 123-4567')">Contact</button>
+                    </div>
+                    <img src="portfolio/img1.jpg" alt="Profile Image">
+                </div>
+                <div class="profile">
+                    <div class="profile-info">
+                        <h2>Jane Smith</h2>
+                        <p>Age: 25</p>
+                        <p>Location: Los Angeles</p>
+                        <p>Services: Dog boarding, cat sitting</p>
+                        <p>Special Skills: Pet grooming</p>
+                        <button class="contact-button" onclick="openModal('jane.smith@example.com', '(555) 234-5678')">Contact</button>
+                    </div>
+                    <img src="profile2.jpg" alt="Profile Image">
+                </div>
+                <div class="profile">
+                    <div class="profile-info">
+                        <h2>Sam Johnson</h2>
+                        <p>Age: 40</p>
+                        <p>Location: Chicago</p>
+                        <p>Services: Pet daycare, overnight stays</p>
+                        <p>Special Skills: Behavioral training</p>
+                        <button class="contact-button" onclick="openModal('sam.johnson@example.com', '(555) 345-6789')">Contact</button>
+                    </div>
+                    <img src="profile3.jpg" alt="Profile Image">
+                </div>
+                <div class="profile">
+                    <div class="profile-info">
+                        <h2>Alice Johnson</h2>
+                        <p>Age: 40</p>
+                        <p>Location: Chicago</p>
+                        <p>Services: Pet daycare, overnight stays</p>
+                        <p>Special Skills: Behavioral training</p>
+                        <button class="contact-button" onclick="openModal('alice.johnson@example.com', '(555) 345-6789')">Contact</button>
+                    </div>
+                    <img src="profile3.jpg" alt="Profile Image">
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Contact Information:</p>
+            <p id="email"></p>
+            <p id="phone"></p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(email, phone) {
+            var modal = document.getElementById('myModal');
+            var emailText = document.getElementById('email');
+            var phoneText = document.getElementById('phone');
+            emailText.innerHTML = "Email: " + email;
+            phoneText.innerHTML = "Phone: " + phone;
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            var modal = document.getElementById('myModal');
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        var map = L.map('map').setView([41.8781, -87.6298], 10); // Centered on Chicago with a zoom level of 10
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Sample markers
+        var markers = [
+            { name: 'John Doe', location: [40.7128, -74.0060] }, // New York
+            { name: 'Jane Smith', location: [34.0522, -118.2437] }, // Los Angeles
+            { name: 'Sam Johnson', location: [41.8781, -87.6298] }, // Chicago
+            { name: 'Alice Johnson', location: [41.8781, -87.6298] } // Chicago
+        ];
+
+        markers.forEach(marker => {
+            L.marker(marker.location)
+                .addTo(map)
+                .bindPopup(marker.name);
+        });
+    </script>
+</body>
+</html>
+
