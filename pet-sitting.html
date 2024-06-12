@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Service Form</title>
-    <link rel="stylesheet" href="css/pet-sitting.css">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pet-sitting.css">
 
 </head>
 <body>
+<header>
     <nav class="navbar navbar-expand-md navbar-dark" style="background-color:#ED1D24">
         <a href="index.html" class="navbar-brand">ANIMAL FARM</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#responsive"><span class="navbar-toggler-icon"></span></button>
@@ -31,7 +32,7 @@
             <img src="img/avatar-dhg.png" alt="" class="rounded-circle ml-3 d-none d-md-block" width="32px" height="32px">
         </div>
     </nav>
-
+</header>
 
 
     <div class="container">
@@ -90,7 +91,7 @@
             <button id="small" onclick="selectSize(this)">Small<br>0 - 15 lbs</button>
             <button id="medium" onclick="selectSize(this)">Medium<br>16 - 40 lbs</button>
             <button id="large" onclick="selectSize(this)">Large<br>41 - 100 lbs</button>
-            <button id="giant" onclick="selectSize(this)">Giant<br>101+ lbs</button>
+            <button id="giant" onclick="selectSize(this)">HUGE<br>101+ lbs</button>
         </div>
 
         <input type="submit" value="Submit" onclick="navigateToPage(event)">
