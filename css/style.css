@@ -41,6 +41,17 @@
     margin-bottom: 4rem;
 }
 
+#index-left{
+    /* padding: 0px; */
+    /* margin: 0px; */
+    margin-top: 0px;
+    margin-bottom: 1.5rem;
+}
+
+#images-left{
+    padding:15px;
+}
+
 .profile-card .card-img-top {
     height: 200px;
     object-fit: cover;
