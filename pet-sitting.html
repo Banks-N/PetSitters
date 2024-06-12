@@ -60,49 +60,64 @@
         </div>
         <div class="section">
             <div class="select-service-group">
-                <button id="boarding" onclick="selectService(this)">Boarding</button>
-                <button id="house-sitting" onclick="selectService(this)">House Sitting</button>
-                <button id="drop-in-visits" onclick="selectService(this)">Drop-In Visits</button>
-                <button id="dog-walking" onclick="selectService(this)">Dog Walking</button>
+                <button id="boarding" class="active" onclick="selectService(this, 'boarding')">Boarding</button>
+                <button id="house-sitting" onclick="selectService(this, 'house-sitting')">House Sitting</button>
+                <button id="drop-in-visits" onclick="selectService(this, 'drop-in-visits')">Drop-In Visits</button>
+                <button id="dog-walking" onclick="selectService(this, 'dog-walking')">Dog Walking</button>
             </div>
         </div>
 
-        <label for="zip-code">Drop-In Visits near</label>
+        <label for="zip-code">Location</label>
         <input type="text" id="zip-code" name="zip-code" placeholder="Zip Code or Address">
 
-        <label>How often do you need this service?</label>
-        <div class="select-frequency-group">
-            <button id="one-time" onclick="selectFrequency(this)">One Time</button>
-            <button id="repeat-weekly" onclick="selectFrequency(this)">Repeat Weekly</button>
+        <div id="frequency-section" class="hidden">
+            <label>How often do you need this service?</label>
+            <div class="select-frequency-group">
+                <button id="one-time" onclick="selectFrequency(this)">One Time</button>
+                <button id="repeat-weekly" onclick="selectFrequency(this)">Repeat Weekly</button>
+            </div>
         </div>
-
         
-        <label>For what dates?</label>
-        <div class="date-input-container">
-            <label for="start-date">Drop Off:</label>
-            <input type="date" id="start-date" name="start-date">
-            
-            <label for="end-date" style="margin-left: 10px;">Pick Up:</label>
-            <input type="date" id="end-date" name="end-date">
+        <div id="dates-section">
+            <label>For what dates?</label>
+            <div class="date-input-container">
+                <p style="margin-left: 10px; margin-right: 10px;">Drop Off:</p>
+                <input type="date" id="start-date" name="start-date">
+                
+                <p style="margin-left: 10px; margin-right: 10px;">Pick Up:</p>
+                <input type="date" id="end-date" name="end-date">
+            </div>
         </div>
-                        
-        <label>My Dog Size</label>
-        <div class="select-size-group">
-            <button id="small" onclick="selectSize(this)">Small<br>0 - 15 lbs</button>
-            <button id="medium" onclick="selectSize(this)">Medium<br>16 - 40 lbs</button>
-            <button id="large" onclick="selectSize(this)">Large<br>41 - 100 lbs</button>
-            <button id="giant" onclick="selectSize(this)">HUGE<br>101+ lbs</button>
+                            
+        <div id="dog-size-section">
+            <label>My Dog Size</label>
+            <div class="select-size-group">
+                <button id="small" onclick="selectSize(this)">Small<br>0 - 15 lbs</button>
+                <button id="medium" onclick="selectSize(this)">Medium<br>16 - 40 lbs</button>
+                <button id="large" onclick="selectSize(this)">Large<br>41 - 100 lbs</button>
+                <button id="giant" onclick="selectSize(this)">HUGE<br>101+ lbs</button>
+            </div>
         </div>
-
+        
         <input type="submit" value="Submit" onclick="navigateToPage(event)">
     </div>
 
     <script>
-        function selectService(button) {
+        function selectService(button, service) {
+            const frequencySection = document.getElementById('frequency-section');
+            const datesSection = document.getElementById('dates-section');
+
+            if (service === 'drop-in-visits' || service === 'dog-walking') {
+                frequencySection.classList.remove('hidden');
+                datesSection.classList.add('hidden');
+            } else {
+                frequencySection.classList.add('hidden');
+                datesSection.classList.remove('hidden');
+            }
             document.querySelectorAll('.select-service-group button').forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
-        }
-
+            }
+        
         function selectFrequency(button) {
             document.querySelectorAll('.select-frequency-group button').forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
@@ -117,16 +132,20 @@
             const selectedPetType = document.querySelector('input[name="pet-type"]:checked').value;
             const dogWalkingButton = document.getElementById('dog-walking');
             const otherAnimalTypeInput = document.getElementById('other-animal-type');
+            const dogSizeSection = document.getElementById('dog-size-section');
 
             if (selectedPetType === 'dog') {
                 dogWalkingButton.classList.remove('hidden');
                 otherAnimalTypeInput.classList.add('hidden');
+                dogSizeSection.classList.remove('hidden');
             } else if (selectedPetType === 'cat') {
                 dogWalkingButton.classList.add('hidden');
                 otherAnimalTypeInput.classList.add('hidden');
+                dogSizeSection.classList.add('hidden');
             } else if (selectedPetType === 'other') {
                 dogWalkingButton.classList.add('hidden');
                 otherAnimalTypeInput.classList.remove('hidden');
+                dogSizeSection.classList.add('hidden');
             }
 
         }
