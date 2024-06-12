@@ -56,8 +56,13 @@
     transform: translateX(-50%);
 }
 
-.profile-card .card-body {
+.profile-card {
     margin-top: 80px;
+}
+
+.card-body {
+    margin: 10px;
+    padding: 0;
 }
 
 .profile-card .nav {
