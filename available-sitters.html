@@ -79,6 +79,22 @@
 .profile-info {
     margin-right: 20px;
 }
+
+#navigate-button {
+    padding: 8px 16px;
+    background-color: #3097D1;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 10px;
+    display: inline-block;
+}
+
 .contact-button {
     padding: 8px 16px;
     background-color: #3097D1;
@@ -92,27 +108,6 @@
     width: fit-content;
     margin-top: 10px; /* Add space between info and button */
     display: inline-block; /* Ensure button-like appearance */
-}
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 400px;
-    text-align: center;
 }
 .close {
     color: #aaa;
@@ -165,33 +160,37 @@
     </nav>
 
     <div class="container">
+        <button id="navigate-button">Back</button>
+
         <div class="column" id="column1">
             <div class="profile-container">
                 <div class="profile">
                     <div class="profile-info">
-                        <h2>John Doe</h2>
+                        <h2>Chloe Lee</h2>
                         <p>Age: 30</p>
                         <p>Location: New York</p>
                         <p>Services: Dog walking, pet sitting</p>
                         <p>Special Skills: First Aid Certified</p>
-                        <button class="contact-button" onclick="openModal('john.doe@example.com', '(555) 123-4567')">Contact</button>
+                        <a href="mailto:john.doe@example.com?subject=Pet%20Sitting%20Request&body=Hi%20John,%0D%0A%0D%0AI%20am%20interested%20in%20your%20pet%20sitting%20services.%20Please%20contact%20me%20at%20your%20earliest%20convenience.%0D%0A%0D%0AThank%20you!" class="contact-button">Contact</a>
+                        <!-- PHONE NUMBER?? -->
                     </div>
                     <img src="portfolio/img1.jpg" alt="Profile Image">
                 </div>
                 <div class="profile">
                     <div class="profile-info">
-                        <h2>Jane Smith</h2>
-                        <p>Age: 25</p>
-                        <p>Location: Los Angeles</p>
+                        <h2>Sean Halperin</h2>
+                        <p>Age: 24</p>
+                        <p>Location: Normal</p>
                         <p>Services: Dog boarding, cat sitting</p>
                         <p>Special Skills: Pet grooming</p>
+                        <!-- !!! contact button -->
                         <button class="contact-button" onclick="openModal('jane.smith@example.com', '(555) 234-5678')">Contact</button>
                     </div>
                     <img src="profile2.jpg" alt="Profile Image">
                 </div>
                 <div class="profile">
                     <div class="profile-info">
-                        <h2>Sam Johnson</h2>
+                        <h2>Banks Nowland</h2>
                         <p>Age: 40</p>
                         <p>Location: Chicago</p>
                         <p>Services: Pet daycare, overnight stays</p>
@@ -202,7 +201,7 @@
                 </div>
                 <div class="profile">
                     <div class="profile-info">
-                        <h2>Alice Johnson</h2>
+                        <h2>Jaydon Fleisch</h2>
                         <p>Age: 40</p>
                         <p>Location: Chicago</p>
                         <p>Services: Pet daycare, overnight stays</p>
@@ -219,36 +218,11 @@
         </div>
     </div>
 
-<!-- Modal -->
-<div id="myModal" class="modal">
-  <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <p>Contact Information:</p>
-      <p id="email"></p>
-      <p id="phone"></p>
-  </div>
-</div>
 <script>
-    function openModal(email, phone) {
-        var modal = document.getElementById('myModal');
-        var emailText = document.getElementById('email');
-        var phoneText = document.getElementById('phone');
-        emailText.innerHTML = "Email: " + email;
-        phoneText.innerHTML = "Phone: " + phone;
-        modal.style.display = "block";
-    }
+    document.getElementById('navigate-button').addEventListener('click', function() {
+        window.location.href = 'pet-sitting.html';
+    });
 
-    function closeModal() {
-        var modal = document.getElementById('myModal');
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        var modal = document.getElementById('myModal');
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
     var map = L.map('map').setView([41.8781, -87.6298], 10); // Centered on Chicago with a zoom level of 10
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
