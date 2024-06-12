@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 
 <!------------------Light Box for Gallery-------------->
 <link rel="stylesheet" href="lightbox.min.css">
@@ -19,11 +19,8 @@
 <header>
     <!-------------------------------Navigation Starts------------------>
 
-    <nav class="navbar navbar-expand-md navbar-dark mb-4" style="background-color:#3097D1">
+    <nav class="navbar navbar-expand-md navbar-dark mb-4" style="background-color:#ED1D24">
         <a href="index.html" class="navbar-brand">ANIMAL FARM</a>
-
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#responsive"><span class="navbar-toggler-icon"></span></button>
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsive">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -109,18 +106,18 @@
             <!--------------------------Left column start-->
             <aside class="col-12 col-lg-3">
                 <div class="left-column">
-                    <div class="card card-left1 mb-4">
+                    <div class="card profile-card">
                         <img src="img/photo-1455448972184-de647495d428.jpg" alt="Cover Photo" class="card-img-top img-fluid">
                         <div class="card-body text-center">
                             <img src="img/avatar-dhg.png" alt="Profile Picture" width="120" height="120" class="rounded-circle mt-n5">
-                            <h5 class="card-title">Dave Gamache</h5>
+                            <h5 class="card-title mt-4">Dave Gamache</h5>
                             <p class="card-text text-justify mb-2">I wish I was a little bit taller, wish I was a baller, wish I had a girl… also.</p>
                             <ul class="list-unstyled nav justify-content-center">
                                 <li class="nav-item">
-                                    <a href="#" class="text-dark text-decoration-none">Friends <br> <strong>12M</strong></a>
+                                    <a href="#">Friends <br> <strong>12M</strong></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="text-dark text-decoration-none">Enemies <br> <strong>1</strong></a>
+                                    <a href="#">Enemies <br> <strong>21k</strong></a>
                                 </li>
                             </ul>
                         </div>
@@ -152,28 +149,22 @@
                             <h5 class="card-title">Photos <small class="ml-2"><a href="#">Edit</a></small></h5>
                             <div class="row">
                                 <div class="col-3 px-1 py-2">
-                                    <a href="img/8.jpg" data-lightbox="photos"><img src="img/8.jpg" alt="Gallery Photo" class="img-fluid"></a>
+                                    <a href="img/left6.jpg" data-lightbox="photos"><img src="img/left6.jpg" alt="Gallery Photo" class="img-fluid"></a>
                                 </div>
                                 <div class="col-3 px-1 py-2">
-                                    <a href="img/7.jpg" data-lightbox="photos"><img src="img/7.jpg" alt="Gallery Photo" class="img-fluid"></a>
+                                    <a href="img/left5.jpg" data-lightbox="photos"><img src="img/left5.jpg" alt="Gallery Photo" class="img-fluid"></a>
                                 </div>
                                 <div class="col-3 px-1 py-2">
-                                    <a href="img/6.jpg" data-lightbox="photos"><img src="img/6.jpg" alt="Gallery Photo" class="img-fluid"></a>
+                                    <a href="img/left4.jpg" data-lightbox="photos"><img src="img/left4.jpg" alt="Gallery Photo" class="img-fluid"></a>
                                 </div>
                                 <div class="col-3 px-1 py-2">
-                                    <a href="img/5.jpg" data-lightbox="photos"><img src="img/5.jpg" alt="Gallery Photo" class="img-fluid"></a>
+                                    <a href="img/left3.jpg" data-lightbox="photos"><img src="img/left3.jpg" alt="Gallery Photo" class="img-fluid"></a>
                                 </div>
                                 <div class="col-3 px-1 py-2">
-                                    <a href="img/4.jpg" data-lightbox="photos"><img src="img/4.jpg" alt="Gallery Photo" class="img-fluid"></a>
+                                    <a href="img/left2.jpg" data-lightbox="photos"><img src="img/left2.jpg" alt="Gallery Photo" class="img-fluid"></a>
                                 </div>
                                 <div class="col-3 px-1 py-2">
-                                    <a href="img/3.jpg" data-lightbox="photos"><img src="img/3.jpg" alt="Gallery Photo" class="img-fluid"></a>
-                                </div>
-                                <div class="col-3 px-1 py-2">
-                                    <a href="img/2.jpg" data-lightbox="photos"><img src="img/2.jpg" alt="Gallery Photo" class="img-fluid"></a>
-                                </div>
-                                <div class="col-3 px-1 py-2">
-                                    <a href="img/1.jpg" data-lightbox="photos"><img src="img/1.jpg" alt="Gallery Photo" class="img-fluid"></a>
+                                    <a href="img/left1.jpg" data-lightbox="photos"><img src="img/left1.jpg" alt="Gallery Photo" class="img-fluid"></a>
                                 </div>
                             </div>
                             <div class="text-center py-3">
@@ -199,62 +190,82 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="card shadow-sm card-middle2 mb-4">
-                        <div class="card-body">
-                            <div class="media">
-                                <img src="img/avatar-dhg.png" alt="User Avatar" width="50" height="50" class="rounded-circle mr-3">
-                                <div class="media-body">
-                                    <div class="form-group">
-                                        <label class="sr-only" for="status">Status</label>
-                                        <textarea name="status" id="status" rows="3" class="form-control" placeholder="What's on your mind?"></textarea>
+                    <div class="card-box">
+                        <div class = "card-first">
+                            <div class="card shadow-sm card-middle2 mb-4">
+                                <div class="card-body">
+                                    <div class="media">
+                                        <img src="img/avatar-dhg.png" alt="User Avatar" width="50" height="50" class="rounded-circle mr-3">
+                                        <div class="media-body">
+                                            <div class="form-group">
+                                                <label class="sr-only" for="post_text">post_text</label>
+                                                <textarea name="post_text" id="post_text" rows="3" class="form-control" placeholder="What's on your mind?"></textarea>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link" id = "photoLink">
+                                                <i class="fas fa-camera text-muted"></i> <span class="d-none d-lg-inline">Photo</span>
+                                                <input type="file" id="uploadInput" accept="image/*" style="display: none;">
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link" id = "videoLink">
+                                                <i class="fas fa-video text-muted"></i> <span class="d-none d-lg-inline">Video</span>
+                                                <input type="file" id="uploadVideoInput" accept="video/*" style="display: none;">
+                                            </a>
+                                        </li>
+                                        <button type="button" class = "btn btn-primary btn-sm" onclick="addCardBody()">Add Post</button>
+                                    </ul>
                                 </div>
                             </div>
-                            <ul class="nav">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fas fa-camera text-muted"></i> <span class="d-none d-lg-inline">Photo</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fas fa-video text-muted"></i> <span class="d-none d-lg-inline">Video</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fas fa-map-marker text-muted"></i> <span class="d-none d-lg-inline">Check-in</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="fas fa-calendar text-muted"></i> <span class="d-none d-lg-inline">Event</span>
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
-                    </div>
-                    <div class="card shadow-sm card-middle3 mb-4">
-                        <div class="card-body">
-                            <div class="media mb-3">
-                                <img src="img/avatar-dhg.png" alt="User Avatar" width="50" height="50" class="rounded-circle mr-3">
-                                <div class="media-body">
-                                    <h5 class="media-header">Dave Gamache <small class="text-muted">2m ago</small></h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio itaque vitae, quasi atque suscipit labore?</p>
-                                    <div class="media">
-                                        <img src="img/1.jpg" alt="Post Image" class="mr-3" width="50" height="50">
-                                        <div class="media-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
-                                            <p><small class="text-muted">Like . Reply</small></p>
+
+                        <!-- POSTS GO HERE -->
+
+                        <!-- 1st hard coded post -->
+                        <div class="card shadow-sm card-middle3 mb-4">
+                            <div class="card-body">
+                                <div class="flex-container">
+                                    <div class="post-header">
+                                        <img src="img/avatar-dhg.png" alt="User Avatar"  class="rounded-circle mr-3">
+                                        <h5 class="media-header">Dave Gamache <small class="text-muted">2m ago</small></h5>
+                                    </div>
+                                    <div class="post-body">
+                                    <!-- Post Image -->
+                                        <img src="img/oscar-close.jpg" alt="Post Image" class="mr-3" width="90%" height="auto" style="padding: 10px 0;">
+
+                                    <!-- Post Text -->
+                                        <p>This is my cat. He is very handsome as you can see.</p>
+                                    </div>
+                                    <!-- Post Actions -->
+                                    <div class="post-actions">
+                                        <a href="#" class="like"></a>
+                                        <a href="#" class="reply"></a>
+                                    </div>
+                                    <!-- Comments -->
+                                    <form action="" class="form-inline" style="padding-top: 10px;">
+                                        <input type="text" class="form-control form-control-sm w-75 mr-3" placeholder="Add a comment">
+                                        <button type="submit" class="btn btn-primary btn-sm">Post</button>
+                                    </form>
+                                    <div class="post-comment">
+                                        <div class="comment-body">
+                                            <img src="img/avatar-dhg.png" alt="User Avatar">
+                                            <div class="comment-content">
+                                                <h6>Fake Person</h6>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
+                                                <div class="comment-actions">
+                                                    <a href="#" class="like"></a>
+                                                    <span>2m ago</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <form action="" class="form-inline">
-                                <input type="text" class="form-control form-control-sm w-75 mr-3" placeholder="Add a comment">
-                                <button type="submit" class="btn btn-primary btn-sm">Post</button>
-                            </form>
-                        </div>
+                        </div>                     
+
                     </div>
                     <!-- Repeat similar structure for other posts -->
                 </div>
@@ -298,6 +309,7 @@
                                     </a>
                                     <hr class="my-3">
                                 </li>
+                                <button type="button" class = "btn btn-primary btn-sm" onclick="addCardBody()">Add Post</button>
                                 <!-- Repeat similar structure for other trending topics -->
                             </ul>
                         </div>
@@ -315,6 +327,152 @@
     </div>
 </footer>
 
+<script>
+// Get references to the elements
+var photoLink = document.getElementById('photoLink');
+var videoLink = document.getElementById('videoLink')
+var uploadInput = document.getElementById('uploadInput');
+var videoInput = document.getElementById('uploadVideoInput');
+var uploadedImage = document.getElementById('uploadedImage');
+var imagepath;
+
+// Add click event listener to the photo span
+videoLink.addEventListener('click', function(event) {
+    // Trigger a click event on the upload input
+    videoInput.click();
+});
+
+// Add click event listener to the photo span
+photoLink.addEventListener('click', function(event) {
+    // Trigger a click event on the upload input
+    uploadInput.click();
+});
+
+// Add event listener to input element
+uploadInput.addEventListener('change', function(event) {
+    // Get the selected file
+    var file = event.target.files[0];
+    
+    // Create a FileReader object
+    var reader = new FileReader();
+
+    // Set up event listener to handle file reading
+    reader.onload = function(event) {
+        // Set the source of the image tag to the uploaded image data
+        // uploadedImage.src = event.target.result;
+        imagepath = event.target.result;
+        console.log("image", imagepath);
+    };
+
+    // Read the selected file as a Data URL
+    reader.readAsDataURL(file);
+});
+
+function addCardBody() {
+    console.log("addCardBody");
+    var cardBox = document.querySelector('.card-box');
+    var cardFirst = cardBox.querySelector('.card-first');
+
+    if (!cardFirst) {
+        console.error("Card header not found.");
+        return;
+    }
+
+    // Username
+    var userName = 'Dave Gamache'
+    //Text
+    var postText = document.getElementById('post_text').value;
+    postText = postText.replace(/\n/g, '<br>');
+    //Video
+    const file = videoInput.files[0];
+
+    // Create a new card body
+    var newCardBody = document.createElement('div');
+    newCardBody.classList.add('new-card');
+
+    // Customize the content of the new card body here
+    newCardBody.innerHTML = 
+    `
+        <div class="card shadow-sm card-middle3 mb-4">
+            <div class="card-body">
+                <div class="flex-container">
+                    <div class="post-header">
+                        <img src="img/avatar-dhg.png" alt="User Avatar"  class="rounded-circle mr-3">
+                        <h5 class="media-header">${userName}<small class="text-muted"> 2m ago</small></h5>
+                    </div>
+                    <div class="post-body">
+                        <!-- Post Image -->
+                        ${imagepath ? `<div class="media">
+                            <img src="${imagepath}" alt="Post Image" class="mr-3" width="90%" height="auto" style="padding-bottom: 15px;">
+                        </div>` : ''}
+                        
+                        <!-- Post Video -->
+                        ${file ? `<div class="media">
+                            <video id="videoPlayer" style="width: 50%;" controls autoplay loop muted>
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>` : ''}
+                        <!-- Post Text -->
+                        <p>${postText}</p>
+                    </div>
+                    <!-- Post Actions -->
+                    <div class="post-actions">
+                        <a href="#" class="like"></a>
+                        <a href="#" class="reply"></a>
+                    </div>
+                    <!-- Comments -->
+                    <form action="" class="form-inline" style="padding-top: 10px;">
+                        <input type="text" class="form-control form-control-sm w-75 mr-3" placeholder="Add a comment">
+                        <button type="submit" class="btn btn-primary btn-sm">Post</button>
+                    </form>
+                    <div class="post-comment">
+                        <div class="comment-body">
+                            <img src="img/avatar-dhg.png" alt="User Avatar">
+                            <div class="comment-content">
+                                <h6>Fake Person</h6>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, facilis?</p>
+                                <div class="comment-actions">
+                                    <a href="#" class="like"></a>
+                                    <span>2m ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    `;
+    
+    // Insert the new card body after the card first element
+    cardFirst.insertAdjacentElement('afterend', newCardBody);
+
+    const videoPlayer = document.getElementById('videoPlayer');
+    if (file) {
+        const url = URL.createObjectURL(file);
+        videoPlayer.src = url;
+        videoPlayer.play();
+
+        // Add event listener for video errors
+        videoPlayer.addEventListener('error', function(e) {
+            console.error('Error loading video:', e);
+            alert('Error loading video. Please ensure the file is a valid video format.');
+        });
+
+        videoPlayer.play().catch(error => {
+            console.error('Error playing video:', error);
+            alert('Error playing video. Please ensure the file is a valid video format.');
+        });
+    } 
+
+    // Clear the input values
+    uploadInput.value = '';
+    videoInput.value = '';
+    imagepath = '';
+    document.getElementById('post_text').value = '';
+}
+
+</script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

@@ -4,83 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Service Form</title>
-    <link rel="stylesheet" href="pet-sitting.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pet-sitting.css">
 
 </head>
 <body>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color:#ED1D24">
+        <a href="index.html" class="navbar-brand">ANIMAL FARM</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#responsive"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="responsive">
+            <ul class="navbar-nav mr-auto text-capitalize">
+                <li class="nav-item"><a href="index.html" class="nav-link">home</a></li>
+                <li class="nav-item"><a href="pet-sitting.html" class="nav-link active">pet sitting</a></li>
+                <li class="nav-item"><a href="profile.html" class="nav-link">profile</a></li>
+                <li class="nav-item"><a href="#modalview" data-toggle="modal" class="nav-link">messages</a></li>
+                <li class="nav-item"><a href="notification.html" class="nav-link">docs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-md-none">growl</a></li>
+                <li class="nav-item"><a href="#" class="nav-link d-md-none">logout</a></li>
+            </ul>
+            <form action="" class="form-inline ml-auto d-none d-md-block">
+                <input type="text" name="search" id="search" placeholder="Search" class="form-control form-control-sm">
+            </form>
+            <a href="notification.html" class="text-decoration-none" style="color:#CBE4F2;font-size:22px;"><i class="far fa-bell ml-3 d-none d-md-block"></i></a> 
+            <img src="img/avatar-dhg.png" alt="" class="rounded-circle ml-3 d-none d-md-block" width="32px" height="32px">
+        </div>
+    </nav>
+</header>
+
+
     <div class="container">
         <h2>I'm looking for service for my:</h2>
         <div class="inline-labels">
             <label>
-                <input type="radio" name="pet-type" value="dog" checked> Dog
+                <input type="radio" name="pet-type" value="dog" checked onclick="handlePetTypeChange()"> Dog
             </label>
             <label>
-                <input type="radio" name="pet-type" value="cat"> Cat
+                <input type="radio" name="pet-type" value="cat" onclick="handlePetTypeChange()"> Cat
             </label>
-            <label>
-                <input type="radio" name="pet-type" value="other" onclick="toggleOtherPetInput(true)"> Other
+<!--             
+            <label class="animal-type-container">
+                <input type="radio" name="pet-type" value="other" onclick="handlePetTypeChange()"> Other
+                <div id="other-animal-type" class="hidden">
+                    <input type="text" id="animal-type" name="animal-type" placeholder="Animal Type">
+                </div>
+            </label> -->
+            <label class="animal-type-container">
+                <input type="radio" name="pet-type" value="other" onclick="handlePetTypeChange()"> Other
+                <input type="text" id="other-animal-type" name="animal-type" placeholder="Animal Type" class="hidden animal-type-input">
             </label>
 
+        
         </div>
         <div class="section">
-            <div class="button-group">
+            <div class="select-service-group">
                 <button id="boarding" onclick="selectService(this)">Boarding</button>
                 <button id="house-sitting" onclick="selectService(this)">House Sitting</button>
-            </div>
-            <div class="button-group">
-                <button id="drop-in-visits" class="active" onclick="selectService(this)">Drop-In Visits</button>
-                <button id="doggy-day-care" onclick="selectService(this)">Dog Walking</button>
+                <button id="drop-in-visits" onclick="selectService(this)">Drop-In Visits</button>
+                <button id="dog-walking" onclick="selectService(this)">Dog Walking</button>
             </div>
         </div>
 
         <label for="zip-code">Drop-In Visits near</label>
-        <input type="text" id="zip-code" name="zip-code" placeholder="Zip code or Address">
+        <input type="text" id="zip-code" name="zip-code" placeholder="Zip Code or Address">
 
         <label>How often do you need this service?</label>
-        <div class="button-group full-width">
-            <button id="one-time" class="active" onclick="selectFrequency(this)">One Time</button>
+        <div class="select-frequency-group">
+            <button id="one-time" onclick="selectFrequency(this)">One Time</button>
             <button id="repeat-weekly" onclick="selectFrequency(this)">Repeat Weekly</button>
         </div>
 
+        
         <label>For what dates?</label>
-        <input type="date" id="start-date" name="start-date">
-        <input type="date" id="end-date" name="end-date">
-
+        <div class="date-input-container">
+            <label for="start-date">Drop Off:</label>
+            <input type="date" id="start-date" name="start-date">
+            
+            <label for="end-date" style="margin-left: 10px;">Pick Up:</label>
+            <input type="date" id="end-date" name="end-date">
+        </div>
+                        
         <label>My Dog Size</label>
-        <div class="button-group">
+        <div class="select-size-group">
             <button id="small" onclick="selectSize(this)">Small<br>0 - 15 lbs</button>
             <button id="medium" onclick="selectSize(this)">Medium<br>16 - 40 lbs</button>
             <button id="large" onclick="selectSize(this)">Large<br>41 - 100 lbs</button>
-            <button id="giant" onclick="selectSize(this)">Giant<br>101+ lbs</button>
+            <button id="giant" onclick="selectSize(this)">HUGE<br>101+ lbs</button>
         </div>
 
-        <button><a href="available-sitters.html">Search</a></button>
+        <input type="submit" value="Submit" onclick="navigateToPage(event)">
     </div>
 
     <script>
         function selectService(button) {
-            document.querySelectorAll('.button-group button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.select-service-group button').forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
         }
 
         function selectFrequency(button) {
-            document.querySelectorAll('.button-group.full-width button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.select-frequency-group button').forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
         }
 
         function selectSize(button) {
-            document.querySelectorAll('.button-group button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.select-size-group button').forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
         }
 
-        function toggleOtherPetInput(show) {
-            const otherPetInput = document.getElementById('other-pet');
-            if (show) {
-                otherPetInput.classList.remove('hidden');
-            } else {
-                otherPetInput.classList.add('hidden');
+        function handlePetTypeChange() {
+            const selectedPetType = document.querySelector('input[name="pet-type"]:checked').value;
+            const dogWalkingButton = document.getElementById('dog-walking');
+            const otherAnimalTypeInput = document.getElementById('other-animal-type');
+
+            if (selectedPetType === 'dog') {
+                dogWalkingButton.classList.remove('hidden');
+                otherAnimalTypeInput.classList.add('hidden');
+            } else if (selectedPetType === 'cat') {
+                dogWalkingButton.classList.add('hidden');
+                otherAnimalTypeInput.classList.add('hidden');
+            } else if (selectedPetType === 'other') {
+                dogWalkingButton.classList.add('hidden');
+                otherAnimalTypeInput.classList.remove('hidden');
             }
+
+        }
+
+        function navigateToPage(event) {
+            event.preventDefault(); // Prevent the form from submitting
+            window.location.href = "available-sitters.html"; // Redirect to the desired page
         }
 
     </script>

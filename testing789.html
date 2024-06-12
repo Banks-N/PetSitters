@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Available Pet Sitters</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        height: 100vh;
-        overflow-y: auto;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Pet Sitters</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh; /* Changed height to min-height */
+            overflow-y: auto;
+        }
 
-    .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        width: 80%;
-    }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 80%;
+        }
 
-    .column {
-        flex: 1;
-        padding: 20px;
-    }
+        .column {
+            flex: 1;
+            padding: 20px;
+        }
 
     .profile-container {
         display: flex;
@@ -115,9 +115,9 @@
         cursor: pointer;
     }
     #map {
-        width: 850px;
-        height: 850px;
-        margin: 0px;
+        width: 800px;
+        height: 800px;
+        margin: 10px;
     }
 </style>
 </head>
@@ -135,7 +135,7 @@
                     <p>Special Skills: First Aid Certified</p>
                     <button class="contact-button" onclick="openModal('john.doe@example.com', '(555) 123-4567')">Contact</button>
                 </div>
-                <img src="portfolio/img1.jpg" alt="Profile Image">
+                <img src="profile1.jpg" alt="Profile Image">
             </div>
             <div class="profile">
                 <div class="profile-info">
@@ -174,12 +174,10 @@
     </div>
 
 
-    <div class="column">
-        <div id="map"></div>
+        <div class="column">
+            <div id="map"></div>
+        </div>
     </div>
-
-    
-</div>
 
     <!-- Modal -->
     <div id="myModal" class="modal">
